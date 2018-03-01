@@ -6,12 +6,13 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "clang++",
+            "command": "~/sh/cpp.sh",
             "args": [
                 "${file}", // プログラムファイル
-                "-g",     // デバッグ情報付加する。ないとデバッグできない。
+                "debug",
+                /* "-g",     // デバッグ情報付加する。ないとデバッグできない。
                 "-O0",    // コンパイル速度重視
-                "-m32"    // 64bitの場合
+                "-m32"    // 64bitの場合 */
             ],
             "group": "build",
             "presentation": {

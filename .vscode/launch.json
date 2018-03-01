@@ -10,10 +10,10 @@
             "type": "cppdbg",
             "request": "launch",
             "targetArchitecture": "x64",
-            "program": "${workspaceRoot}/a.out",
+            "program": "${fileDirname}/a.out",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${workspaceRoot}",
+            "cwd": "${fileDirname}",
             "environment": [],
             "externalConsole": true,
             "linux": {
