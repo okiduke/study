@@ -17,13 +17,24 @@ class FileException :
 {
 public:
     FileException(const char* error);
-    
-public:
-    // エラーの状況を出力する関数
-    virtual const char* What() const;
+    virtual const char* What() const; // エラーの状況を出力する関数
     
 protected:
     std::string m_error; // エラーメッセージ
+};
+
+class OpenFileException :
+    public FileException
+{
+public:
+    OpenFileException(const char* filename);
+};
+
+class ReadFileException:
+    public FileException
+{
+public:
+    ReadFileException();
 };
 
 #endif /* FileException_hpp */
