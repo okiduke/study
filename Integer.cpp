@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-int Integer::m_value;
+static int m_value;
 
 Integer::Integer(int num) {
     m_value = num;
