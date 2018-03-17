@@ -14,21 +14,21 @@ public:
 };
 
 void Student::Show() {
-    cout << "–¼‘O : " << name << endl
-        << "  ‘Œê : " << scoreJapanese << " “_"
-        ", ”Šw : " << scoreMath << " “_"
-        ", ‰pŒê : " << scoreEnglish << " “_" << endl;
+    cout << "åå‰ï¼š" << name << endl
+         << "  å›½èªžï¼š" << scoreJapanese << " ç‚¹"
+            ", æ•°å­¦ï¼š" << scoreMath     << " ç‚¹"
+            ", è‹±èªžï¼š" << scoreEnglish  << " ç‚¹" << endl;
 }
 
 int main() {
     Student student[] = {
-        { "ÔˆäF", 73, 98, 86, },
-        { "Š}ˆä‘å‰î", 64, 45, 40, },
-        { "‹g“cŠ", 76, 78, 69, },
+        { "ç”Ÿå¾’1", 73, 98, 86, },
+        { "ç”Ÿå¾’2", 64, 45, 40, },
+        { "ç”Ÿå¾’3", 55, 51, 43, },
     };
     int size = sizeof student / sizeof *student;
 
-    for (int i = 0; i < size; ++i) {
+    for(int i = 0; i < size; ++i) {
         student[i].Show();
     }
 }

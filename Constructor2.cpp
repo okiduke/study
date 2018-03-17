@@ -5,25 +5,35 @@ class Integer {
 public:
     int m_value;
 
-    Integer();
-    Integer(int num);
+    // Integer();
+    Integer(int num = 0);
     void Show();
 };
 
-// コンストラクタ
-Integer::Integer()        { m_value = 0; }
-Integer::Integer(int num) { m_value = num;  }
+// 繧ｳ繝ｳ繧ｹ繝医Λ繧ｯ繧ｿ
+/*
+Integer::Integer() {
+    m_value = 0;
+}
+*/
 
-// メンバ変数の表示
+Integer::Integer(int num) {
+    m_value = num;
+}
+
+// 繝｡繝ｳ繝仙､画焚縺ｮ陦ｨ遉ｺ
 void Integer::Show() {
     cout << m_value << endl;
 }
 
 int main() {
-    Integer a;
-    Integer b(100), c(40);
+    Integer array[4] = {
+        Integer(),
+        Integer(3),
+        Integer(9),
+    };
 
-    a.Show();
-    b.Show();
-    c.Show();
+    for(int i = 0; i < 4; ++i) {
+        array[i].Show();
+    }
 }

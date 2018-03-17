@@ -5,28 +5,28 @@ const int MAX_NAME = 16;
 
 class Student {
 public:
-	char name[MAX_NAME + 1];
-	int scoreJapanese;
-	int scoreMath;
-	int scoreEnglish;
+    char name[MAX_NAME + 1];
+    int scoreJapanese;
+    int scoreMath;
+    int scoreEnglish;
 };
 
 void Show(const Student& student) {
-	cout << "–¼‘O : "   << student.name          << endl
-	     << "  ‘Œê : " << student.scoreJapanese << " “_"
-		    ", ”Šw : " << student.scoreMath     << " “_"
-		    ", ‰pŒê : " << student.scoreEnglish  << " “_" << endl;
+    cout << "åå‰ï¼š"   << student.name          << endl
+         << "  å›½èªžï¼š" << student.scoreJapanese << " ç‚¹"
+            ", æ•°å­¦ï¼š" << student.scoreMath     << " ç‚¹"
+            ", è‹±èªžï¼š" << student.scoreEnglish  << " ç‚¹" << endl;
 }
 
 int main() {
-	Student student[] = {
-		{ "ÔˆäF", 73, 98, 86, },
-		{ "Š}ˆä‘å‰î", 64, 45, 40, },
-		{ "‹g“cŠ", 76, 78, 69, },
-	};
-	int size = sizeof student / sizeof *student;
+    Student student[] = {
+        {"ç”Ÿå¾’1", 73, 98, 86 },
+        {"ç”Ÿå¾’2", 64, 45, 40 },
+        {"ç”Ÿå¾’3", 76, 78, 69 },
+    };
+    int size = sizeof student / sizeof *student;
 
-	for (int i = 0; i < size; ++i) {
-		Show(student[i]);
-	}
+    for(int i = 0; i < size; ++i) {
+        Show(student[i]);
+    }
 }

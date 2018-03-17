@@ -9,12 +9,12 @@ public:
     void Show();
 };
 
-// コンストラクタ
+// 繧ｳ繝ｳ繧ｹ繝医Λ繧ｯ繧ｿ
 Integer::Integer() {
-   m_value = 0;
+    m_value = 0;
 }
 
-// メンバ変数の表示
+// 繝｡繝ｳ繝仙､画焚縺ｮ陦ｨ遉ｺ
 void Integer::Show() {
     cout << m_value << endl;
 }
