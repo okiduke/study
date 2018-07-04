@@ -1,46 +1,38 @@
-#include "IntArray.h"
 #include <iostream>
-#include <algorithm>
-#include <cstdlib>
+#include <cstdlib> // exité–¢æ•°ã«å¿…è¦
 using namespace std;
 
-// ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+const int INTARRAY_SIZE = 100;
+
+class IntArray {
+private:
+    int* m_array; // å‹•çš„é…åˆ—
+    int  m_size;  // é…åˆ—ã®è¦ç´ æ•°
+
+public:
+    IntArray(int size);                 // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+    ~IntArray();
+    int Get(int i);             // ãƒ¡ãƒ³ãƒã¸ã®ã‚¢ã‚¯ã‚»ã‚¹é–¢æ•°(å–å¾—)
+    void Set(int i, int value); // ãƒ¡ãƒ³ãƒã¸ã®ã‚¢ã‚¯ã‚»ã‚¹é–¢æ•°(å¤‰æ›´)
+
+private:
+    void CheckIndex(int i);     // ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã®ãƒã‚§ãƒƒã‚¯
+};
+
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 IntArray::IntArray(int size) {
     m_array = new int[size];
     m_size = size;
 
-    cout << "ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ªŒÄ‚Î‚ê‚Ü‚µ‚½B" << "—v‘f”‚Í " << m_size << " ‚Å‚·B" << endl;
+    fill_n(m_array, m_size, 0);
 }
 
-// ƒRƒs[ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-IntArray::IntArray(const IntArray& other) {
-    m_array = new int[other.m_size];
-    m_size = other.m_size;
-
-    // copy‚Íƒƒ‚ƒŠ‚Ì“à—e‚ğƒRƒs[‚·‚éŠÖ”‚Ì‚æ‚¤‚È‚à‚Ì
-    // copy(other.m_array, other.m_array + m_size, m_array);
-
-    cout << "ƒRƒs[ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ªŒÄ‚Î‚ê‚Ü‚µ‚½B" << endl;
-}
-
-// ‘ã“ü‰‰Zq‚ÌƒI[ƒo[ƒ[ƒh
-void IntArray::operator = (const IntArray& other) {
-    int* array = new int[other.m_size];
-
-    delete[] m_array;
-    m_array = array;
-    m_size = other.m_size;
-    copy(other.m_array, other.m_array + m_size, m_array);
-}
-
-// ƒfƒXƒgƒ‰ƒNƒ^
+// ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 IntArray::~IntArray() {
     delete[] m_array;
-
-    cout << "ƒfƒXƒgƒ‰ƒNƒ^‚ªŒÄ‚Î‚ê‚Ü‚µ‚½B" << "—v‘f”‚Í " << m_size << " ‚Å‚µ‚½B" << endl;
 }
 
-// ƒƒ“ƒo‚Ö‚ÌƒAƒNƒZƒXŠÖ”
+// ãƒ¡ãƒ³ãƒã¸ã®ã‚¢ã‚¯ã‚»ã‚¹é–¢æ•°
 int IntArray::Get(int i) {
     CheckIndex(i);
     return m_array[i];
@@ -51,18 +43,21 @@ void IntArray::Set(int i, int value) {
     m_array[i] = value;
 }
 
-// ƒCƒ“ƒfƒbƒNƒX‚Ìƒ`ƒFƒbƒN
 void IntArray::CheckIndex(int i) {
-    if (0 <= i && i < m_size) {
-        // ƒCƒ“ƒfƒbƒNƒX‚Í³í‚Å‚·
-    }
-    else {
-        cout << "ƒCƒ“ƒfƒbƒNƒX‚ª•s³‚Å‚·I" << endl
-            << "’l : " << i << endl;
+    if(0 <= i && i < m_size) {
+        // ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã¯æ­£å¸¸ã§ã™
+    } else {
+        cout << "ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ãŒä¸æ­£ã§ã™ï¼" << endl
+             << "å€¤ : " << i << endl;
         exit(EXIT_FAILURE);
     }
 }
 
-int IntArray::Size() {
-    return m_size;
+int main() {
+    IntArray a(100);
+
+    cout << a.Get(0) << endl;
+    a.Set(0, 1);
+    cout << a.Get(0) << endl;
+    a.Set(100,1);
 }

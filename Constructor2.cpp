@@ -5,18 +5,11 @@ class Integer {
 public:
     int m_value;
 
-    // Integer();
     Integer(int num = 0);
     void Show();
 };
 
 // コンストラクタ
-/*
-Integer::Integer() {
-    m_value = 0;
-}
-*/
-
 Integer::Integer(int num) {
     m_value = num;
 }
@@ -33,7 +26,8 @@ int main() {
         Integer(9),
     };
 
-    for(int i = 0; i < 4; ++i) {
+    int size = sizeof array / sizeof *array;
+    for(int i = 0; i < size; ++i) {
         array[i].Show();
     }
 }
