@@ -1,4 +1,4 @@
-#include "IntArray.h"
+#include "IntArray.hpp"
 #include <iostream>
 using namespace std;
 
@@ -6,21 +6,21 @@ int main() {
     IntArray a(5);
     IntArray b(5);
 
-    // a‚É’l‚ğ“ü—Í‚µ‚Ä‚¢‚­
-    for (int i = 0, size = a.Size(); i < size; ++i) {
+    // a ã«å€¤ã‚’å…¥åŠ›ã—ã¦ã„ã
+    for(int i = 0, size = a.Size(); i < size; ++i) {
         int n;
         cin >> n;
         a.Set(i, n);
     }
 
-    // ‚»‚ê‚ğ b ‚ÉƒRƒs[‚µ‚ÄAŠe’l‚ğ 2 ”{‚·‚é
+    // ãã‚Œã‚’ b ã«ã‚³ãƒ”ãƒ¼ã—ã¦ã€å„å€¤ã‚’ 2 å€ã™ã‚‹
     b = a;
-    for (int i = 0, size = b.Size(); i < size; ++i) {
+    for(int i = 0, size = b.Size(); i < size; ++i) {
         b.Set(i, b.Get(i) * 2);
     }
 
-    // a ‚©‚ç b ‚Å‚Ç‚¤’l‚ª•Ï‰»‚µ‚½‚©‚ğo—Í‚·‚é
-    for (int i = 0, size = a.Size(); i < size; ++i) {
+    // a ã‹ã‚‰ b ã§ã©ã†å€¤ãŒå¤‰åŒ–ã—ãŸã‹ã‚’å‡ºåŠ›ã™ã‚‹
+    for(int i = 0, size = a.Size(); i < size; ++i) {
         cout << a.Get(i) << " -> " << b.Get(i) << endl;
     }
 }

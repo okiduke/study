@@ -1,39 +1,42 @@
+#include "IntArray.hpp"
 #include <iostream>
-#include <cstdlib> // exit関数に必要
+#include <algorithm>
+#include <cstdlib>
 using namespace std;
 
-const int INTARRAY_SIZE = 100;
-
-class IntArray {
-private:
-    int* m_array; // 動的配列
-    int  m_size;  // 配列の要素数
-
-public:
-    IntArray(int size);                 // コンストラクタ
-    ~IntArray();
-    int Get(int i);             // メンバへのアクセス関数(取得)
-    void Set(int i, int value); // メンバへのアクセス関数(変更)
-
-private:
-    void CheckIndex(int i);     // インデックスのチェック
-};
-
-// コンストラクタ
-IntArray::IntArray(int size) {
+IntArray::IntArray(int size){
     m_array = new int[size];
     m_size = size;
 
-    fill_n(m_array, m_size, 0);
+    fill_n(m_array, size, 0);
+
+    cout << "コンストラクタが呼ばれました。要素数は " << size << " です。" << endl;
 }
 
-// デストラクタ
+IntArray::IntArray(const IntArray& other) {
+    m_array = new int[other.m_size];
+    m_size  = other.m_size;
+
+    copy(other.m_array, other.m_array + m_size, m_array);
+
+    cout << "コピーコンストラクタが呼ばれました。" << endl;
+}
+
 IntArray::~IntArray() {
     delete[] m_array;
+    cout << "デストラクタが呼ばれました。要素数は " << m_size << " でした。" << endl;
 }
 
-// メンバへのアクセス関数
-int IntArray::Get(int i) {
+void IntArray::operator=(const IntArray& other) {
+    int* array = new int[other.m_size];
+
+    delete[] m_array;
+    m_array = array;
+    m_size = other.m_size;
+    copy(other.m_array, other.m_array + m_size, m_array);
+}
+
+int IntArray::Get(int i) const {
     CheckIndex(i);
     return m_array[i];
 }
@@ -43,21 +46,16 @@ void IntArray::Set(int i, int value) {
     m_array[i] = value;
 }
 
-void IntArray::CheckIndex(int i) {
+void IntArray::CheckIndex(int i) const {
     if(0 <= i && i < m_size) {
-        // インデックスは正常です
+        // 正常なインデックス
     } else {
-        cout << "インデックスが不正です！" << endl
+        cout << "不正なインデックスです。" << endl
              << "値 : " << i << endl;
         exit(EXIT_FAILURE);
     }
 }
 
-int main() {
-    IntArray a(100);
-
-    cout << a.Get(0) << endl;
-    a.Set(0, 1);
-    cout << a.Get(0) << endl;
-    a.Set(100,1);
+int IntArray::Size() const {
+    return m_size;
 }
