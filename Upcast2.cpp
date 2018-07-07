@@ -9,14 +9,14 @@ void Show(const Stream& stream) {
 
 int main() {
     InputStream istream;
-    
+
     cout << "> " << flush;
     istream.Set();
     Show(istream);
-    
+
     static const double ARRAY[] = { 3, -1 };
     ArrayStream astream(ARRAY);
-    
+
     astream.Set();
     Show(astream);
 }

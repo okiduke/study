@@ -10,6 +10,7 @@ private:
     int m_i;    //現在のインデックス
 public:
     ArrayStream(const double* array);
+    ~ArrayStream();
     bool Set();          // 新しい値を設定
 };
 

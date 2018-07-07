@@ -1,8 +1,14 @@
 #include "ArrayStream.hpp"
+#include <iostream>
 
 ArrayStream::ArrayStream(const double* array) {
+    std::cout << "ArrayStreamのコンストラクタが呼ばれました" << std::endl;
     m_array = array;
     m_i = 0;
+}
+
+ArrayStream::~ArrayStream() {
+    std::cout << "ArrayStreamのデストラクタが呼ばれました" << std::endl;
 }
 
 // 新しい値を設定

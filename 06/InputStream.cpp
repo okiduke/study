@@ -3,16 +3,15 @@
 using namespace std;
 
 // コンストラクタ
-InputStream::InputStream() {
-    // 何もしない
+InputStream::InputStream(double n) : Stream(n) {
+    cout << "InputStream" << endl;
 }
 
 InputStream::~InputStream() {
-    // 何もしない
+    std::cout << "InputStreamのデストラクタが呼ばれました" << std::endl;
 }
 
-// 入力関数
-bool InputStream::Set() {
+// 値を設定する基本関数
+void InputStream::SetBase() {
     cin >> m_n;
-    return m_n >= 0;
 }

@@ -6,9 +6,11 @@
 // 入力クラス
 class InputStream : public Stream {
 public:
-    InputStream();
+    InputStream(double n);
     ~InputStream();
-    bool Set();         // 入力関数
+
+private:
+    virtual void SetBase(); // 値を設定する基本関数
 };
 
 #endif // #ifndef INPUTSTREAM_H_
