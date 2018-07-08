@@ -6,10 +6,10 @@
 // 入力クラス
 class InputStream : public Stream {
 public:
-    InputStream(double n);
+    InputStream();
     ~InputStream();
 
-private:
+protected:
     virtual void SetBase(); // 値を設定する基本関数
 };
 

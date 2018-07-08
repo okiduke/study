@@ -2,8 +2,12 @@
 #include <iostream>
 using namespace std;
 
-Stream::Stream(double n) : m_n(n) {
+Stream::Stream() : m_n(-1) {
     cout << "Stream" << endl;
+}
+
+Stream::~Stream() {
+    cout << "~Stream" << endl;
 }
 
 // 設定された値を取得

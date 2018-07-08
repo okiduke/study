@@ -6,7 +6,8 @@ class Stream {
 protected:
     double m_n; // 現在の値
 public:
-    Stream(double n);
+    Stream();
+    virtual ~Stream(); // 仮装デストラクタ
     double Get() const; // 設定された値を取得
     bool Set();
 

@@ -3,7 +3,7 @@
 using namespace std;
 
 // コンストラクタ
-InputStream::InputStream(double n) : Stream(n) {
+InputStream::InputStream() : Stream() {
     cout << "InputStream" << endl;
 }
 
